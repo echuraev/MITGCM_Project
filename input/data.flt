@@ -1,0 +1,9 @@
+# *********************
+# Float Namelist
+# *********************
+ &FLT_NML
+ flt_int_traj =  0.05,
+ flt_int_prof =  0.15,
+ flt_noise    = 0.0,
+ flt_file     = 'flts.init',
+ &

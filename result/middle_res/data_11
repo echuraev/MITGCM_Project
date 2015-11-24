@@ -1,0 +1,120 @@
+# ====================
+# | Model parameters |
+# ====================
+#
+# Continuous equation parameters
+ &PARM01
+ tRef=106*0.,
+ sRef=106*0.,
+ viscAh=5.E-4,
+# viscAz=
+ viscAr=7.5E-6,
+ no_slip_sides=.FALSE.,
+ no_slip_bottom=.FALSE.,
+ f0=0.0,
+ beta=9.99999E-11,
+ eosType='LINEAR',
+ rhoNil=1.0345E3,
+ rhoConst=1.0345E3,
+# tAlpha=1.0E-3,
+ tAlpha=9.6664E-4,
+ sBeta=0.E-4,
+ gravity=9.81,
+
+ rigidLid=.FALSE.,
+# implicSurfPress=0.5,
+# implicDiv2Dflow=0.5,
+# implicitNHPress=1.,
+
+ implicitFreeSurface=.TRUE.,
+# nonlinFreeSurf=0,
+# hFacInf=0.2,
+# hFacSup=2.0,
+ exactConserv=.FALSE.,
+ nonHydrostatic=.TRUE.,
+# Momentum equations.
+ momViscosity=.TRUE.,
+ momAdvection=.TRUE.,
+ momForcing=.TRUE.,
+ useCoriolis=.FALSE.,
+ momPressureForcing=.TRUE.,
+ momStepping=.TRUE.,
+ metricTerms=.FALSE.,
+ hFacMin=0.4,
+# implicSurfPress=0.5,
+# implicDiv2DFlow=0.5,
+# nonlinFreeSurf=0,
+# hFacInf=0.2,
+# hFacSup=1.8,
+# Diffusion
+ implicitDiffusion=.FALSE.,
+ diffKhT=5.E-5,
+ diffKrT=1.E-7,
+ diffKhS=0.E3,
+ diffKrS=0.E-5,
+# On/off temp and salt parametries.
+ tempStepping=.TRUE.,
+ tempAdvection=.TRUE.,
+ tempImplVertAdv=.FALSE.,
+ tempForcing=.TRUE.,
+ saltStepping=.FALSE.,
+ saltAdvection=.FALSE.,
+ saltImplVertAdv=.FALSE.,
+ saltForcing=.FALSE.,
+
+# default: 2.E-4,
+ bottomDragLinear=2.E-4,
+# default: 3.0E-3,
+ bottomDragQuadratic=6.E-3,
+# tempAdvScheme=33,
+ tempAdvScheme=77,
+ staggerTimeStep=.TRUE.,
+#- not safe to use globalFiles in multi-processors runs
+ globalFiles=.TRUE.,
+ readBinaryPrec=64,
+ writeBinaryPrec=64,
+ writeStatePrec=64,
+ &
+
+# Elliptic solver parameters
+ &PARM02
+ cg2dMaxIters=1000,
+ cg2dTargetResidual=1.E-13,
+ cg3dMaxIters=400,
+ cg3dTargetResidual=1.E-13,
+ &
+
+# Time stepping parameters
+ &PARM03
+ nIter0=0,
+# It gives 3360 ~ 42s with dT=0.0125
+ nTimeSteps=4560,
+# nTimeSteps=4560, 57s near the right wall
+# deltaT=0.00125 - In article
+ deltaT=0.0125,
+ abEps=0.1,
+ pChkptFreq=39.29,
+ chkptFreq=39.29,
+ dumpFreq=0.15,
+ monitorFreq=0.15,
+ monitorSelect=2,
+ &
+
+# Gridding parameters
+ &PARM04
+ usingCartesianGrid=.TRUE.,
+ delXfile='delXvar',
+ delYfile='delYvar',
+ delRfile='delZvar',
+ &
+
+# Input datasets
+ &PARM05
+ hydrogSaltFile='salinity.init',
+ checkIniSalt=.FALSE.,
+ hydrogThetaFile='temperature.init',
+ checkIniTemp=.FALSE.,
+# uVelInitFile='uvelocity.init',
+ bathyFile='topography.init',
+ pSurfInitFile='surface.init',
+ &
