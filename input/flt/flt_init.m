@@ -113,7 +113,7 @@ Np = Np + lp;
 
 %** Depict points
 %* begin
-if (1)
+if (h.deb ~= 0)
     figure(1);
     plot(coordinates.surf(:, 1), coordinates.surf(:, 3), 'r*');
     hold on;

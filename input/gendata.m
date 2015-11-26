@@ -1,5 +1,9 @@
 % This is a matlab script that generates the input data
 
+% Questions:
+% What is the number of Reynolds?
+%
+
 clear prec ieee dx x dy y dz z i j k t grid_x grid_z zp s fid eta r0 ...
     r_m d r0 rc rloc_max rloc_min tAlpha zpm zpd CWD h par_path ans;
 
@@ -66,13 +70,16 @@ for i=1:h.nx
         end;
     end;
 end;
-figure(1);
-grid on;
-[grid_x, grid_z] = meshgrid(x, z);
-pcolor(grid_x', grid_z', t);
-shading interp;
-colormap(jet);
-colorbar;
+if (h.deb ~= 0)
+    figure();
+    grid on;
+    [grid_x, grid_z] = meshgrid(x, z);
+    pcolor(grid_x', grid_z', t);
+    shading interp;
+    colormap(jet);
+    colorbar;
+    title(sprintf('Temperature'));
+end
 fid=fopen('temperature.init','w',ieee); fwrite(fid,t,prec); fclose(fid);
 %** end.
 
@@ -96,8 +103,11 @@ for i=1:h.nx
         d(i, j) = 0;
     end;
 end;
-%figure(2);
-%plot(x, d(:,1));
+if (h.deb ~= 0)
+    figure();
+    plot(x, d(:,1));
+    title(sprintf('Topography'));
+end;
 fid=fopen('topography.init','w',ieee); fwrite(fid,d,prec); fclose(fid);
 %** end
 
@@ -113,8 +123,11 @@ for i=1:h.nx
         end;
     end;
 end;
-figure(2);
-plot(x, eta(:,1));
+if (h.deb ~= 0)
+    figure();
+    plot(x, eta(:,1));
+    title(sprintf('Surface'));
+end;
 fid=fopen('surface.init','w',ieee); fwrite(fid,eta,prec); fclose(fid);
 %** end
 

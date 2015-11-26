@@ -3,6 +3,8 @@ function h = parameters()
 % This function returns a structure hander which has the whole set of
 % parameters using for calculations and results depiction.
 
+    h.deb = 1;
+
     %** Domain dimmension parameters
     %*  begin
     % Dimensions of the grid
