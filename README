@@ -1,0 +1,5 @@
+If you have a problem with runnith mitgcm with openMP then check this vars:
+
+#OMP Variables
+export OMP_NUM_THREADS=4
+export OMP_STACKSIZE=800m

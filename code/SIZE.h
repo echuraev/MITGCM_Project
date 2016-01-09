@@ -33,11 +33,11 @@ C     Nr  - No. points in Z for full process domain.
       INTEGER Ny
       INTEGER Nr
       PARAMETER (
-     &           sNx =1000,
+     &           sNx = 250,
      &           sNy =   1,
      &           OLx =   3,
      &           OLy =   3,
-     &           nSx =   1,
+     &           nSx =   4,
      &           nSy =   1,
      &           nPx =   1,
      &           nPy =   1,

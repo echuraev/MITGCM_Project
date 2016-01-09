@@ -4,7 +4,7 @@
 # nTx - No. threads per process in X
 # nTy - No. threads per process in Y
  &EEPARMS
- nTx=1,
+ nTx=4,
  nTy=1,
  &
 # Note: Some systems use & as the namelist terminator (as shown here).
